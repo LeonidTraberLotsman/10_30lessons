@@ -34,7 +34,14 @@ public class head : MonoBehaviour
                 enemy that_enemy = hit.transform.GetComponent<enemy>();
                 if (that_enemy)
                 {
-                    that_enemy.Die();
+                    
+                    
+                    //that_enemy.Die();//Shot on dog
+                    that_enemy.Damage(10);//Shot on dog
+
+
+
+
                 }
             }
         }
