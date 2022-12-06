@@ -25,6 +25,20 @@ public class head : MonoBehaviour
         transform.localRotation = Quaternion.Euler(xRotation, 0, 0);
         playerBody.Rotate(Vector3.up* mouseX);
 
+        if (Input.GetKeyDown(KeyCode.Mouse0))
+        {
+            RaycastHit hit;
+            if(Physics.Raycast(transform.position,transform.forward,out hit))
+            {
+                Debug.Log(hit.transform.name);
+                enemy that_enemy = hit.transform.GetComponent<enemy>();
+                if (that_enemy)
+                {
+                    that_enemy.Die();
+                }
+            }
+        }
+
 
     }
 }

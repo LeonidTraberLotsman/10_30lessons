@@ -8,16 +8,21 @@ public class enemy : MonoBehaviour
     public NavMeshAgent agent;
     public Transform player;
     CubeMover PlayerScript;
-
+    Coroutine cor;
 
     // Start is called before the first frame update
     void Start()
     {
            agent = GetComponent<NavMeshAgent>();
         PlayerScript = player.GetComponent<CubeMover>();
-        StartCoroutine(CatchPlayer());
+        cor=StartCoroutine(CatchPlayer());
     }
+    public void Die()
+    {
+        StopCoroutine(cor);
 
+        Destroy(this.gameObject);
+    }
     IEnumerator CatchPlayer()
     {
         while (true){
