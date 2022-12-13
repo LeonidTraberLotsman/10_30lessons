@@ -50,9 +50,8 @@ public class enemy : MonoBehaviour
             yield return null;
             if (Vector3.Distance(player.position, transform.position) < 10)
             {
-                Debug.Log("Damage");
-                PlayerScript.hp -= 5;
-                PlayerScript.ShowHP();
+                
+                PlayerScript.Damage(5);
                 yield return new WaitForSeconds(7);
             }
             
