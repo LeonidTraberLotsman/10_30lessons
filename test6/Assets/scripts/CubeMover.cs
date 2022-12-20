@@ -9,6 +9,8 @@ public class CubeMover : MonoBehaviour
     public Text HPtext;
     bool CanMove = true;
 
+
+    public Button RestartButton; 
     public head my_head; 
 
     public Text GameOverText;   
@@ -32,10 +34,12 @@ public class CubeMover : MonoBehaviour
 
     void Die()
     {
-        GameOverText.enabled = true;  
+        GameOverText.enabled = true;
+        RestartButton.gameObject.SetActive(true);
         Debug.Log("player is dead");
         CanMove = false;
-        my_head.CanMove = false;  
+        my_head.CanMove = false;
+        Cursor.lockState = CursorLockMode.None;
     }
 
     public void Damage(int dam)
