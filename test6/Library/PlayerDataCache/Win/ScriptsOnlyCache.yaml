@@ -13,7 +13,6 @@ ScriptsOnlyBuild:
     - TMPro.TMP_Settings
     - TMPro.TMP_SpriteAsset
     - TMPro.TMP_StyleSheet
-    - TMPro.TextMeshProUGUI
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
     - UnityEditor.TestTools.TestRunner.TestListCacheData
@@ -23,6 +22,7 @@ ScriptsOnlyBuild:
     - UnityEngine.EventSystems.StandaloneInputModule
     - UnityEngine.UI.CanvasScaler
     - UnityEngine.UI.GraphicRaycaster
+    - UnityEngine.UI.RawImage
     - UnityEngine.UI.Text
   serializedClasses:
     Unity.TextMeshPro:
@@ -39,7 +39,6 @@ ScriptsOnlyBuild:
     - TMPro.TMP_SpriteCharacter
     - TMPro.TMP_SpriteGlyph
     - TMPro.TMP_Style
-    - TMPro.VertexGradient
     UnityEngine.CoreModule:
     - UnityEngine.Events.PersistentCallGroup
     UnityEngine.TextCoreFontEngineModule:
@@ -92,6 +91,8 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 2210}
     - Class: 114
+      Script: {instanceID: 2338}
+    - Class: 114
       Script: {instanceID: 2644}
     - Class: 114
       Script: {instanceID: 2870}
@@ -109,8 +110,6 @@ ScriptsOnlyBuild:
       Script: {instanceID: 5550}
     - Class: 114
       Script: {instanceID: 5882}
-    - Class: 114
-      Script: {instanceID: 6034}
     - Class: 114
       Script: {instanceID: 6378}
     - Class: 114
@@ -746,7 +745,7 @@ ScriptsOnlyBuild:
     className: BeforeAfterTestCommandState
   - hash:
       serializedVersion: 2
-      Hash: c1608d6e5d8535f28cbd7bf26141bfd2
+      Hash: 1c0c11e6e9c769688ebd403f95686716
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: CubeMover
@@ -944,7 +943,7 @@ ScriptsOnlyBuild:
     className: TouchInputModule
   - hash:
       serializedVersion: 2
-      Hash: a2d9b25bebb2391cbe47c5376c923248
+      Hash: b6bdb51d47140ab7ceae727216a011a3
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: head
