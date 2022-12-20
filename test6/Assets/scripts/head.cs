@@ -3,42 +3,45 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class head : MonoBehaviour
-{
-    public Transform playerBody;
-    public float sens = 1;
+{   
+    [Header("Чувствительность мыши")]
+     
+    public float sensitivityMouse = 200f;
+    public Transform Player;
+
+    public bool active = true;
+
     float xRotation = 0;
-    // Start is called before the first frame update
-    void Start()
+
+    private void Start()
     {
-        Cursor.lockState = CursorLockMode.Locked;
+        Cursor. lockState = CursorLockMode.Locked;
     }
-
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        float mouseX = Input.GetAxis("Mouse X")* sens;
-        float mouseY = Input.GetAxis("Mouse Y")* sens;
-
-        xRotation -= mouseY;
-        xRotation = Mathf.Clamp(xRotation, -40, 40);
-
-        transform.localRotation = Quaternion.Euler(xRotation, 0, 0);
-        playerBody.Rotate(Vector3.up* mouseX);
-
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+        if (active)
         {
-            RaycastHit hit;
-            if(Physics.Raycast(transform.position,transform.forward,out hit))
+            float mouseX = Input.GetAxis("Mouse X") * sensitivityMouse;
+            float mouseY = Input.GetAxis("Mouse Y") * sensitivityMouse;
+
+            xRotation = xRotation - mouseY;
+            xRotation = Mathf.Clamp(xRotation, -40, 40);
+            transform.localRotation = Quaternion.Euler(xRotation, 0, 0);
+            Player.Rotate(Vector3.up * mouseX);
+            if (Input.GetKey(KeyCode.Mouse0))
             {
-                Debug.Log(hit.transform.name);
-                enemy that_enemy = hit.transform.GetComponent<enemy>();
-                if (that_enemy)
+                RaycastHit hit;
+                if (Physics.Raycast(transform.position, transform.forward, out hit))
                 {
-                    that_enemy.Die();
+                    Debug.Log(hit.transform.name);
+                    enemy that_enemy = hit.transform.GetComponent<enemy>();
+                    if (that_enemy)
+                    {
+                        Debug.Log("hit");
+                        that_enemy.Damage(35);
+                    }
                 }
             }
         }
-
-
     }
 }
