@@ -1,18 +1,30 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;  
 
 public class head : MonoBehaviour
 {
     public Transform playerBody;
     public float sens = 1;
+    public int CurAmmo = 31; 
     float xRotation = 0;
     public bool CanMove = true;
+
+    bool isReloading = false;
+
+    public Text AmmoText; 
     // Start is called before the first frame update
     void Start()
     {
+        ShowAmmo();
         Cursor.lockState = CursorLockMode.Locked;
     }
+
+    void ShowAmmo()  
+    {
+        AmmoText.text = CurAmmo.ToString();  
+    } 
 
     // Update is called once per frame
     void Update()
@@ -28,9 +40,12 @@ public class head : MonoBehaviour
             transform.localRotation = Quaternion.Euler(xRotation, 0, 0);
             playerBody.Rotate(Vector3.up * mouseX);
 
-            if (Input.GetKey(KeyCode.Mouse0))
+            if (Input.GetKeyDown(KeyCode.Mouse0)&&CurAmmo>0)
             {
-                RaycastHit hit;
+                CurAmmo -= 1;
+                ShowAmmo();
+
+                RaycastHit hit; 
                 if (Physics.Raycast(transform.position, transform.forward, out hit))
                 {
                     Debug.Log(hit.transform.name);
