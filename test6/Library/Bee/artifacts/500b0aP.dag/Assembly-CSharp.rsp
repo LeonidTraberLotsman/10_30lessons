@@ -306,6 +306,7 @@
 "Assets/scripts/CubeMover.cs"
 "Assets/scripts/enemy.cs"
 "Assets/scripts/head.cs"
+"Assets/scripts/LevelManager.cs"
 "Assets/scripts/PhysicTest.cs"
 "Assets/scripts/spawn.cs"
 "Assets/scripts/test.cs"

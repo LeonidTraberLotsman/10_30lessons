@@ -7,7 +7,12 @@ public class head : MonoBehaviour
 {
     public Transform playerBody;
     public float sens = 1;
-    public int CurAmmo = 31; 
+    
+    public int CurAmmo = 31;
+    public int MaxAmmo = 31;
+    public int BagAmmo = 250;
+
+
     float xRotation = 0;
     public bool CanMove = true;
 
@@ -20,10 +25,32 @@ public class head : MonoBehaviour
         ShowAmmo();
         Cursor.lockState = CursorLockMode.Locked;
     }
+    void StartReloiding()
+    {
+        if (BagAmmo < 1) return;
+        if (MaxAmmo ==CurAmmo) return;
+        if (!CanMove) return;
+        StartCoroutine(Reload());
+    }
 
+    IEnumerator Reload()
+    {
+        isReloading = true;
+        yield return new WaitForSeconds(1);
+
+        int delta = MaxAmmo - CurAmmo;
+        int AmmoToReload = delta;
+        if (BagAmmo < delta) AmmoToReload = BagAmmo;
+
+        CurAmmo += AmmoToReload;
+        BagAmmo -= AmmoToReload;
+        ShowAmmo();
+
+        isReloading = false;
+    }
     void ShowAmmo()  
     {
-        AmmoText.text = CurAmmo.ToString();  
+        AmmoText.text = CurAmmo.ToString() +"/"+BagAmmo.ToString();  
     } 
 
     // Update is called once per frame
@@ -40,7 +67,9 @@ public class head : MonoBehaviour
             transform.localRotation = Quaternion.Euler(xRotation, 0, 0);
             playerBody.Rotate(Vector3.up * mouseX);
 
-            if (Input.GetKeyDown(KeyCode.Mouse0)&&CurAmmo>0)
+            if (Input.GetKeyDown(KeyCode.R)){StartReloiding();}
+
+            if (Input.GetKeyDown(KeyCode.Mouse0)&&CurAmmo>0&&!isReloading)
             {
                 CurAmmo -= 1;
                 ShowAmmo();

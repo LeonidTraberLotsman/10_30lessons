@@ -2,6 +2,7 @@ ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
     - CubeMover
+    - LevelManager
     - enemy
     - head
     - spawn
@@ -20,8 +21,10 @@ ScriptsOnlyBuild:
     UnityEngine.UI.dll:
     - UnityEngine.EventSystems.EventSystem
     - UnityEngine.EventSystems.StandaloneInputModule
+    - UnityEngine.UI.Button
     - UnityEngine.UI.CanvasScaler
     - UnityEngine.UI.GraphicRaycaster
+    - UnityEngine.UI.Image
     - UnityEngine.UI.RawImage
     - UnityEngine.UI.Text
   serializedClasses:
@@ -40,16 +43,29 @@ ScriptsOnlyBuild:
     - TMPro.TMP_SpriteGlyph
     - TMPro.TMP_Style
     UnityEngine.CoreModule:
+    - UnityEngine.Events.ArgumentCache
     - UnityEngine.Events.PersistentCallGroup
+    - UnityEngine.Events.PersistentListenerMode
     UnityEngine.TextCoreFontEngineModule:
     - UnityEngine.TextCore.FaceInfo
     - UnityEngine.TextCore.Glyph
     - UnityEngine.TextCore.GlyphMetrics
     - UnityEngine.TextCore.GlyphRect
     UnityEngine.UI:
+    - UnityEngine.UI.AnimationTriggers
+    - UnityEngine.UI.Button/ButtonClickedEvent
+    - UnityEngine.UI.ColorBlock
     - UnityEngine.UI.FontData
     - UnityEngine.UI.MaskableGraphic/CullStateChangedEvent
-  methodsToPreserve: []
+    - UnityEngine.UI.Navigation
+    - UnityEngine.UI.SpriteState
+  methodsToPreserve:
+  - assembly: Assembly-CSharp
+    fullTypeName: LevelManager
+    methodName: Restart
+  - assembly: Assembly-CSharp
+    fullTypeName: LevelManager
+    methodName: Restart
   sceneClasses:
     Assets/Scenes/SampleScene.unity:
     - Class: 1
@@ -70,8 +86,6 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 48
       Script: {instanceID: 0}
-    - Class: 49
-      Script: {instanceID: 0}
     - Class: 54
       Script: {instanceID: 0}
     - Class: 64
@@ -87,9 +101,9 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 1758}
+      Script: {instanceID: 1588}
     - Class: 114
-      Script: {instanceID: 2210}
+      Script: {instanceID: 1758}
     - Class: 114
       Script: {instanceID: 2338}
     - Class: 114
@@ -97,25 +111,23 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 2870}
     - Class: 114
+      Script: {instanceID: 3170}
+    - Class: 114
       Script: {instanceID: 3440}
-    - Class: 114
-      Script: {instanceID: 4236}
-    - Class: 114
-      Script: {instanceID: 4504}
     - Class: 114
       Script: {instanceID: 4542}
     - Class: 114
-      Script: {instanceID: 5270}
+      Script: {instanceID: 5052}
     - Class: 114
-      Script: {instanceID: 5550}
+      Script: {instanceID: 5552}
     - Class: 114
-      Script: {instanceID: 5882}
+      Script: {instanceID: 5884}
     - Class: 114
-      Script: {instanceID: 6378}
+      Script: {instanceID: 6380}
     - Class: 114
-      Script: {instanceID: 6498}
+      Script: {instanceID: 6500}
     - Class: 114
-      Script: {instanceID: 8288}
+      Script: {instanceID: 8290}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -128,6 +140,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 196
       Script: {instanceID: 0}
+    - Class: 213
+      Script: {instanceID: 0}
     - Class: 222
       Script: {instanceID: 0}
     - Class: 223
@@ -135,6 +149,69 @@ ScriptsOnlyBuild:
     - Class: 224
       Script: {instanceID: 0}
     - Class: 238
+      Script: {instanceID: 0}
+    Assets/Scenes/startMenu.unity:
+    - Class: 1
+      Script: {instanceID: 0}
+    - Class: 4
+      Script: {instanceID: 0}
+    - Class: 20
+      Script: {instanceID: 0}
+    - Class: 21
+      Script: {instanceID: 0}
+    - Class: 28
+      Script: {instanceID: 0}
+    - Class: 48
+      Script: {instanceID: 0}
+    - Class: 49
+      Script: {instanceID: 0}
+    - Class: 81
+      Script: {instanceID: 0}
+    - Class: 89
+      Script: {instanceID: 0}
+    - Class: 104
+      Script: {instanceID: 0}
+    - Class: 108
+      Script: {instanceID: 0}
+    - Class: 114
+      Script: {instanceID: 1588}
+    - Class: 114
+      Script: {instanceID: 2210}
+    - Class: 114
+      Script: {instanceID: 2644}
+    - Class: 114
+      Script: {instanceID: 2870}
+    - Class: 114
+      Script: {instanceID: 3170}
+    - Class: 114
+      Script: {instanceID: 4236}
+    - Class: 114
+      Script: {instanceID: 4504}
+    - Class: 114
+      Script: {instanceID: 5052}
+    - Class: 114
+      Script: {instanceID: 5272}
+    - Class: 114
+      Script: {instanceID: 5552}
+    - Class: 114
+      Script: {instanceID: 5884}
+    - Class: 114
+      Script: {instanceID: 6380}
+    - Class: 115
+      Script: {instanceID: 0}
+    - Class: 128
+      Script: {instanceID: 0}
+    - Class: 157
+      Script: {instanceID: 0}
+    - Class: 196
+      Script: {instanceID: 0}
+    - Class: 213
+      Script: {instanceID: 0}
+    - Class: 222
+      Script: {instanceID: 0}
+    - Class: 223
+      Script: {instanceID: 0}
+    - Class: 224
       Script: {instanceID: 0}
   scriptHashData:
   - hash:
@@ -607,6 +684,12 @@ ScriptsOnlyBuild:
     className: AnimationPlayableAsset
   - hash:
       serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: LevelManager
+  - hash:
+      serializedVersion: 2
       Hash: 77aaaaa51f7a8d8ff333a879741e47d2
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
@@ -745,7 +828,7 @@ ScriptsOnlyBuild:
     className: BeforeAfterTestCommandState
   - hash:
       serializedVersion: 2
-      Hash: 1c0c11e6e9c769688ebd403f95686716
+      Hash: d69b8ae48d2406f753d85a1f6cbac322
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: CubeMover
@@ -955,5 +1038,6 @@ ScriptsOnlyBuild:
     className: UnityOnSliderValueChangedMessageListener
   platform: 5
   scenePathNames:
+  - Assets/Scenes/startMenu.unity
   - Assets/Scenes/SampleScene.unity
   playerPath: D:/Unity/10_30lessons/test6/build/test6.exe
