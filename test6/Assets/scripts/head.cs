@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class head : MonoBehaviour
 {
+    public GameObject GrenadePrefab; 
+
     public Transform playerBody;
     public float sens = 1;
     
@@ -68,6 +70,14 @@ public class head : MonoBehaviour
             playerBody.Rotate(Vector3.up * mouseX);
 
             if (Input.GetKeyDown(KeyCode.R)){StartReloiding();}
+
+            if (Input.GetKeyUp(KeyCode.G)) {
+                GameObject NewGrenade = Instantiate(GrenadePrefab);
+
+                NewGrenade.transform.position = transform.position + transform.up + transform.right;
+
+                NewGrenade.GetComponent<Rigidbody>().AddForce(transform.forward*1000);
+            }
 
             if (Input.GetKeyDown(KeyCode.Mouse0)&&CurAmmo>0&&!isReloading)
             {
