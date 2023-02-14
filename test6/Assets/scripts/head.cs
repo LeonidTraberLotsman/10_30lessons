@@ -20,7 +20,9 @@ public class head : MonoBehaviour
 
     bool isReloading = false;
 
-    public Text AmmoText; 
+    public Text AmmoText;
+
+    public BattleManager MyBattleManager;
     // Start is called before the first frame update
     void Start()
     {
@@ -76,7 +78,9 @@ public class head : MonoBehaviour
 
                 NewGrenade.transform.position = transform.position + transform.up + transform.right;
 
-                
+                NewGrenade.GetComponent<grenade>().MyBattleManager = MyBattleManager;
+
+
             }
 
             if (Input.GetKeyDown(KeyCode.Mouse0)&&CurAmmo>0&&!isReloading)

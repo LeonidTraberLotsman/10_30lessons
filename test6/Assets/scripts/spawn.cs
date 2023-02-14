@@ -8,7 +8,7 @@ public class spawn : MonoBehaviour
 
     public Transform Player;//
 
-    
+    public BattleManager MyBattleManager;
 
 
     void SpawnDog()
@@ -20,6 +20,8 @@ public class spawn : MonoBehaviour
         new_dog.GetComponent<Renderer>().material.color = new Color(Random.Range(0f, 1f), Random.Range(0f, 1f), Random.Range(0f, 1f));
 
         Debug.Log("called");
+
+        MyBattleManager.enemies.Add(new_dog.GetComponent<enemy>());
     }
 
     
