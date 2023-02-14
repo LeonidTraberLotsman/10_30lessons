@@ -8,6 +8,9 @@ public class spawn : MonoBehaviour
 
     public Transform Player;//
 
+    
+
+
     void SpawnDog()
     {
         GameObject new_dog = Instantiate(prefab);
@@ -18,6 +21,8 @@ public class spawn : MonoBehaviour
 
         Debug.Log("called");
     }
+
+    
     // Start is called before the first frame update
     void Start()
     {

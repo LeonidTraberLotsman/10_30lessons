@@ -76,7 +76,7 @@ public class head : MonoBehaviour
 
                 NewGrenade.transform.position = transform.position + transform.up + transform.right;
 
-                NewGrenade.GetComponent<Rigidbody>().AddForce(transform.forward*1000);
+                
             }
 
             if (Input.GetKeyDown(KeyCode.Mouse0)&&CurAmmo>0&&!isReloading)
