@@ -20,6 +20,23 @@ public class enemy : MonoBehaviour
         cor=StartCoroutine(CatchPlayer());
     }
 
+    public void BeAfraidOfGrenade(grenade that_grenade)
+    {
+        StopCoroutine(cor);
+        Vector3 direction = transform.position-that_grenade.transform.position;
+        cor = StartCoroutine(RunFromGrenade(transform.position+direction*5));
+    }
+    IEnumerator RunFromGrenade(Vector3 point)
+    {
+        yield return new WaitForSeconds(0.2f);//realising
+        agent.destination = point;
+        agent.speed = 10000;
+
+        yield return new WaitForSeconds(5);
+
+        cor = StartCoroutine(CatchPlayer());
+    }
+
     public void Damage(int damage_count)
     {
         HP = HP - damage_count;
