@@ -5,6 +5,7 @@ using UnityEngine.AI;
 
 public class enemy : MonoBehaviour
 {
+   // enemy class
     public NavMeshAgent agent;
     public Transform player;
     CubeMover PlayerScript;
