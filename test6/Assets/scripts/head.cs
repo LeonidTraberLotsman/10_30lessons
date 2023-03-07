@@ -14,6 +14,7 @@ public class head : MonoBehaviour
     public int MaxAmmo = 31;
     public int BagAmmo = 250;
 
+    public int grenades = 5;
 
     float xRotation = 0;
     public bool CanMove = true;
