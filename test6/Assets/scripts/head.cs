@@ -9,12 +9,14 @@ public class head : MonoBehaviour
 
     public Transform playerBody;
     public float sens = 1;
-    
+
+    public int grenades = 3;
+
     public int CurAmmo = 31;
     public int MaxAmmo = 31;
     public int BagAmmo = 250;
 
-    public int grenades = 5;
+   
 
     float xRotation = 0;
     public bool CanMove = true;
@@ -53,7 +55,7 @@ public class head : MonoBehaviour
 
         isReloading = false;
     }
-    void ShowAmmo()  
+    public void ShowAmmo()  
     {
         AmmoText.text = CurAmmo.ToString() +"/"+BagAmmo.ToString();  
     } 
@@ -74,14 +76,14 @@ public class head : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.R)){StartReloiding();}
 
-            if (Input.GetKeyUp(KeyCode.G)) {
+            if (Input.GetKeyUp(KeyCode.G)&&grenades>0) {
                 GameObject NewGrenade = Instantiate(GrenadePrefab);
 
                 NewGrenade.transform.position = transform.position + transform.up + transform.right;
 
                 NewGrenade.GetComponent<grenade>().MyBattleManager = MyBattleManager;
 
-
+                grenades = grenades - 1;
             }
 
             if (Input.GetKeyDown(KeyCode.Mouse0)&&CurAmmo>0&&!isReloading)

@@ -1,9 +1,13 @@
 ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
+    - BattleManager
     - CubeMover
     - LevelManager
+    - ammoBox
     - enemy
+    - grenade
+    - grenadeBox
     - head
     - spawn
     - train
@@ -105,32 +109,42 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 1758}
     - Class: 114
-      Script: {instanceID: 2338}
+      Script: {instanceID: 1996}
     - Class: 114
-      Script: {instanceID: 2644}
+      Script: {instanceID: 2340}
     - Class: 114
-      Script: {instanceID: 2870}
+      Script: {instanceID: 2646}
     - Class: 114
-      Script: {instanceID: 3170}
+      Script: {instanceID: 2728}
     - Class: 114
-      Script: {instanceID: 3440}
+      Script: {instanceID: 2874}
     - Class: 114
-      Script: {instanceID: 4542}
+      Script: {instanceID: 3174}
     - Class: 114
-      Script: {instanceID: 5052}
+      Script: {instanceID: 3444}
     - Class: 114
-      Script: {instanceID: 5552}
+      Script: {instanceID: 4546}
     - Class: 114
-      Script: {instanceID: 5884}
+      Script: {instanceID: 5056}
     - Class: 114
-      Script: {instanceID: 6380}
+      Script: {instanceID: 5556}
     - Class: 114
-      Script: {instanceID: 6500}
+      Script: {instanceID: 5888}
     - Class: 114
-      Script: {instanceID: 8290}
+      Script: {instanceID: 6384}
+    - Class: 114
+      Script: {instanceID: 6504}
+    - Class: 114
+      Script: {instanceID: 6870}
+    - Class: 114
+      Script: {instanceID: 8298}
+    - Class: 114
+      Script: {instanceID: 23394}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
+      Script: {instanceID: 0}
+    - Class: 135
       Script: {instanceID: 0}
     - Class: 136
       Script: {instanceID: 0}
@@ -139,6 +153,10 @@ ScriptsOnlyBuild:
     - Class: 195
       Script: {instanceID: 0}
     - Class: 196
+      Script: {instanceID: 0}
+    - Class: 198
+      Script: {instanceID: 0}
+    - Class: 199
       Script: {instanceID: 0}
     - Class: 213
       Script: {instanceID: 0}
@@ -176,27 +194,27 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 1588}
     - Class: 114
-      Script: {instanceID: 2210}
+      Script: {instanceID: 2212}
     - Class: 114
-      Script: {instanceID: 2644}
+      Script: {instanceID: 2646}
     - Class: 114
-      Script: {instanceID: 2870}
+      Script: {instanceID: 2874}
     - Class: 114
-      Script: {instanceID: 3170}
+      Script: {instanceID: 3174}
     - Class: 114
-      Script: {instanceID: 4236}
+      Script: {instanceID: 4240}
     - Class: 114
-      Script: {instanceID: 4504}
+      Script: {instanceID: 4508}
     - Class: 114
-      Script: {instanceID: 5052}
+      Script: {instanceID: 5056}
     - Class: 114
-      Script: {instanceID: 5272}
+      Script: {instanceID: 5276}
     - Class: 114
-      Script: {instanceID: 5552}
+      Script: {instanceID: 5556}
     - Class: 114
-      Script: {instanceID: 5884}
+      Script: {instanceID: 5888}
     - Class: 114
-      Script: {instanceID: 6380}
+      Script: {instanceID: 6384}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -274,6 +292,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.VisualScripting.Core.dll
     namespaceName: Unity.VisualScripting
     className: UnityOnMouseExitMessageListener
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: ammoBox
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
@@ -358,6 +382,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.VisualScripting.Core.dll
     namespaceName: Unity.VisualScripting
     className: UnityMessageListener
+  - hash:
+      serializedVersion: 2
+      Hash: 37810b594fcf22a971f050b46b5d519f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: grenade
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
@@ -474,7 +504,7 @@ ScriptsOnlyBuild:
     className: ScriptMachine
   - hash:
       serializedVersion: 2
-      Hash: 34e6502384bdf06634367f3495968f24
+      Hash: 709347f1a662ba8e66dd42567f8f33c1
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: spawn
@@ -870,6 +900,12 @@ ScriptsOnlyBuild:
     className: VerticalLayoutGroup
   - hash:
       serializedVersion: 2
+      Hash: 0fbb4bc30b6653b954cf6136bf8623e3
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: BattleManager
+  - hash:
+      serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: Unity.VisualScripting.Core.dll
     namespaceName: Unity.VisualScripting
@@ -1002,6 +1038,12 @@ ScriptsOnlyBuild:
     className: TMP_ScrollbarEventHandler
   - hash:
       serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: lootBox
+  - hash:
+      serializedVersion: 2
       Hash: 8220b46879dc5e37db1b940c938f5744
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
@@ -1026,7 +1068,7 @@ ScriptsOnlyBuild:
     className: TouchInputModule
   - hash:
       serializedVersion: 2
-      Hash: b6bdb51d47140ab7ceae727216a011a3
+      Hash: 6097469e3b8e4ad8816f6615965289e3
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: head
@@ -1036,6 +1078,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.VisualScripting.Core.dll
     namespaceName: Unity.VisualScripting
     className: UnityOnSliderValueChangedMessageListener
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: grenadeBox
   platform: 5
   scenePathNames:
   - Assets/Scenes/startMenu.unity
