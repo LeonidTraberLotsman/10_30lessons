@@ -58,22 +58,22 @@ public class CubeMover : MonoBehaviour
         {
             if (Input.GetKey(KeyCode.W))
             {
-                body.AddForce(transform.forward * 50);
+                body.AddForce(transform.forward * 30);
 
             }
             if (Input.GetKey(KeyCode.S))
             {
-                body.AddForce(-transform.forward * 50);
+                body.AddForce(-transform.forward * 10);
 
             }
             if (Input.GetKey(KeyCode.D))
             {
-                body.AddForce(transform.right * 50);
+                body.AddForce(transform.right * 10);
 
             }
             if (Input.GetKey(KeyCode.A))
             {
-                body.AddForce(-transform.right * 50);
+                body.AddForce(-transform.right * 10);
 
             }
             if (Input.GetKeyUp(KeyCode.Space))

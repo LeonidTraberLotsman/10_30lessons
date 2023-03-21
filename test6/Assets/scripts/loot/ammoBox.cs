@@ -22,6 +22,7 @@ public class ammoBox : MonoBehaviour
             mover.my_head.ShowAmmo();
             Debug.Log("ammo touched");
             Active = false;
+            Destroy(this.gameObject);
         }
     }
 }

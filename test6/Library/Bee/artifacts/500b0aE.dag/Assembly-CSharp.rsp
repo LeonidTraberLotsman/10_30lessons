@@ -359,6 +359,8 @@
 "Assets/scripts/LevelManager.cs"
 "Assets/scripts/loot/ammoBox.cs"
 "Assets/scripts/loot/grenadeBox.cs"
+"Assets/scripts/loot/hpBox.cs"
+"Assets/scripts/loot/lootRain.cs"
 "Assets/scripts/lootBox.cs"
 "Assets/scripts/PhysicTest.cs"
 "Assets/scripts/spawn.cs"

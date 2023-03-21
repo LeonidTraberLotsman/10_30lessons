@@ -101,7 +101,7 @@ public class head : MonoBehaviour
 
 
                         //that_enemy.Die();//Shot on dog
-                        that_enemy.Damage(10);//Shot on dog
+                        that_enemy.Damage(50);//Shot on dog
 
 
 
