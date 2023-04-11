@@ -364,6 +364,7 @@
 "Assets/scripts/lootBox.cs"
 "Assets/scripts/PhysicTest.cs"
 "Assets/scripts/spawn.cs"
+"Assets/scripts/spectator.cs"
 "Assets/scripts/test.cs"
 "Assets/scripts/train.cs"
 -langversion:9.0

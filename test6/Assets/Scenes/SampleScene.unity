@@ -139,7 +139,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &103953555
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -205,6 +205,8 @@ MonoBehaviour:
   player: {fileID: 2139118100}
   renderer: {fileID: 0}
   distance: 40
+  SpotStatus: 0
+  manager: {fileID: 0}
 --- !u!65 &447189627
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1469,6 +1471,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemies: []
+  spectators: []
 --- !u!4 &2133776642
 Transform:
   m_ObjectHideFlags: 0

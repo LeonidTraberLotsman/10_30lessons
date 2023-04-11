@@ -9,30 +9,38 @@ public class spectator : MonoBehaviour
     public Renderer renderer;
     public float distance;
 
-    bool CanSee()
+    public float SpotStatus = 0;
+
+
+    public BattleManager manager; 
+    float CanSee()
     {
-        if (Vector3.Distance(transform.position, player.position) > distance) return false;
+        float local_distance = Vector3.Distance(transform.position, player.position);
+        if (local_distance > distance) return 0;
         RaycastHit hit;
 
         Vector3 direction = player.position - transform.position;
 
         float angle = Vector3.Angle(direction, transform.forward);
         if (angle < 0) angle = -angle;
-        if (angle > 60) return false; 
+        if (angle > 60) return 0; 
 
         if(Physics.Raycast(transform.position,direction,out hit))
         {
             Debug.Log(hit.transform.name);
             if(hit.transform== player)
             {
-                return true;
+                return 1/local_distance;
             }
         }
 
-        return false;
+        return 0;
     }
 
+    public void Alarmed()
+    {
 
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -42,13 +50,23 @@ public class spectator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       if(CanSee())
-        {
-            renderer.material.color = Color.green;
+        float seePoints=CanSee();
+        Debug.Log(seePoints);
+        if (seePoints ==0) seePoints = -1;
+        SpotStatus += seePoints;
+        if (SpotStatus <0) SpotStatus = 0;
+        if (SpotStatus > 100) {
+            SpotStatus = 100;
+
+            manager.Alarm();
+
+
         }
-        else
-        {
-            renderer.material.color = Color.red;
-        }
+
+
+        float color=SpotStatus/ 100;
+
+        renderer.material.color = new Color(1-color,color,0);
+       
     }
 }
