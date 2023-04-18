@@ -1,16 +1,28 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI; 
+
 
 public class spectator : MonoBehaviour
 {
+    public NavMeshAgent agent; 
 
     public Transform player;
+    CubeMover PlayerScript;
     public Renderer renderer;
     public float distance;
 
     public float SpotStatus = 0;
 
+
+    public enum State
+    {
+        dead,
+        calm,
+        battle
+    }
+    public State MyState;
 
     public BattleManager manager; 
     float CanSee()
@@ -39,20 +51,34 @@ public class spectator : MonoBehaviour
 
     public void Alarmed()
     {
-
+        MyState = State.battle;
     }
     // Start is called before the first frame update
     void Start()
     {
+        PlayerScript = player.GetComponent<CubeMover>();
+
+        MyState = State.calm;
         renderer = GetComponent<Renderer>();
+        agent = GetComponent<NavMeshAgent>(); 
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (MyState == State.battle)
+        {
+            agent.destination = player.position;
+            if (Vector3.Distance(player.position, transform.position) < 10)
+            {
+
+                PlayerScript.Damage(5);
+               
+            }
+        }
         float seePoints=CanSee();
         Debug.Log(seePoints);
-        if (seePoints ==0) seePoints = -1;
+        if (seePoints <100) seePoints -= 0.01f; 
         SpotStatus += seePoints;
         if (SpotStatus <0) SpotStatus = 0;
         if (SpotStatus > 100) {
